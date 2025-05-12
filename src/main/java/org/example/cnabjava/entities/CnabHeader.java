@@ -3,7 +3,10 @@ package org.example.cnabjava.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -32,6 +35,12 @@ public class CnabHeader {
   @Column(nullable = false)
   private String date;
 
+  @CreationTimestamp
+  private Instant createdAt;
+
+  @UpdateTimestamp
+  private Instant updatedAt;
+
   public CnabHeader() {
   }
 
@@ -43,7 +52,9 @@ public class CnabHeader {
       final String accountNumber,
       final String accountDigit,
       final String digit,
-      final String date
+      final String date,
+      final Instant createdAt,
+      final Instant updatedAt
   ) {
     this.id = id;
     this.bankCode = bankCode;
@@ -53,6 +64,8 @@ public class CnabHeader {
     this.accountDigit = accountDigit;
     this.digit = digit;
     this.date = date;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
   }
 
   public UUID getId() {
@@ -119,6 +132,22 @@ public class CnabHeader {
     this.date = date;
   }
 
+  public Instant getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(final Instant createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public Instant getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final Instant updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
   @Override
   public String toString() {
     return "CnabHeader{" +
@@ -130,6 +159,8 @@ public class CnabHeader {
         ", accountDigit='" + accountDigit + '\'' +
         ", digit='" + digit + '\'' +
         ", date='" + date + '\'' +
+        ", createdAt=" + createdAt +
+        ", updatedAt=" + updatedAt +
         '}';
   }
 }

@@ -3,7 +3,10 @@ package org.example.cnabjava.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -23,6 +26,12 @@ public class CnabFile {
   @Column
   private String errorMessage;
 
+  @CreationTimestamp
+  private Instant createdAt;
+
+  @UpdateTimestamp
+  private Instant updatedAt;
+
   public CnabFile() {
   }
 
@@ -31,13 +40,17 @@ public class CnabFile {
       final UUID key,
       final CnabFileStatus status,
       final CnabType type,
-      final String errorMessage
+      final String errorMessage,
+      final Instant createdAt,
+      final Instant updatedAt
   ) {
     this.id = id;
     this.key = key;
     this.status = status;
     this.type = type;
     this.errorMessage = errorMessage;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
   }
 
   public UUID getId() {
@@ -80,6 +93,22 @@ public class CnabFile {
     this.errorMessage = errorMessage;
   }
 
+  public Instant getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(final Instant createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public Instant getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final Instant updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
   @Override
   public String toString() {
     return "CnabFile{" +
@@ -88,6 +117,8 @@ public class CnabFile {
         ", status=" + status +
         ", type=" + type +
         ", errorMessage='" + errorMessage + '\'' +
+        ", createdAt=" + createdAt +
+        ", updatedAt=" + updatedAt +
         '}';
   }
 }

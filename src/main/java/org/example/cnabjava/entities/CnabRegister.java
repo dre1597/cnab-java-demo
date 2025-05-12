@@ -3,7 +3,10 @@ package org.example.cnabjava.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -50,6 +53,12 @@ public class CnabRegister {
   @Column(nullable = false)
   private String complement;
 
+  @CreationTimestamp
+  private Instant createdAt;
+
+  @UpdateTimestamp
+  private Instant updatedAt;
+
   public CnabRegister() {}
 
   public CnabRegister(
@@ -66,7 +75,9 @@ public class CnabRegister {
       final String category,
       final String historicCode,
       final String historicDescription,
-      final String complement
+      final String complement,
+      final Instant createdAt,
+      final Instant updatedAt
   ) {
     this.id = id;
     this.agencyCode = agencyCode;
@@ -82,6 +93,8 @@ public class CnabRegister {
     this.historicCode = historicCode;
     this.historicDescription = historicDescription;
     this.complement = complement;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
   }
 
   public UUID getId() {
@@ -196,6 +209,22 @@ public class CnabRegister {
     this.complement = complement;
   }
 
+  public Instant getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(final Instant createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public Instant getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(final Instant updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
   @Override
   public String toString() {
     return "CnabRegister{" +
@@ -213,6 +242,8 @@ public class CnabRegister {
         ", historicCode='" + historicCode + '\'' +
         ", historicDescription='" + historicDescription + '\'' +
         ", complement='" + complement + '\'' +
+        ", createdAt=" + createdAt +
+        ", updatedAt=" + updatedAt +
         '}';
   }
 }

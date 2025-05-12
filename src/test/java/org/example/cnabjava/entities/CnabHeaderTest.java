@@ -2,6 +2,7 @@ package org.example.cnabjava.entities;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,6 +18,7 @@ class CnabHeaderTest {
     final var agencyDigit = "any_agency_digit";
     final var digit = "any_digit";
     final var date = "any_date";
+    final var now = Instant.now();
 
     final var header = new CnabHeader(
         id,
@@ -26,7 +28,9 @@ class CnabHeaderTest {
         accountNumber,
         accountDigit,
         digit,
-        date
+        date,
+        now,
+        now
     );
 
     assertThat(header.getId()).isEqualTo(id);
@@ -37,6 +41,8 @@ class CnabHeaderTest {
     assertThat(header.getAccountDigit()).isEqualTo(accountDigit);
     assertThat(header.getDate()).isEqualTo(date);
     assertThat(header.getDigit()).isEqualTo(digit);
+    assertThat(header.getCreatedAt()).isEqualTo(now);
+    assertThat(header.getUpdatedAt()).isEqualTo(now);
   }
 
   @Test
@@ -49,6 +55,7 @@ class CnabHeaderTest {
     final var agencyDigit = "other_agency_digit";
     final var digit = "other_digit";
     final var date = "other_date";
+    final var now = Instant.now();
 
     final var header = new CnabHeader();
     header.setId(id);
@@ -59,6 +66,8 @@ class CnabHeaderTest {
     header.setAgencyDigit(agencyDigit);
     header.setDate(date);
     header.setDigit(digit);
+    header.setCreatedAt(now);
+    header.setUpdatedAt(now);
 
     assertThat(header.getId()).isEqualTo(id);
     assertThat(header.getBankCode()).isEqualTo(bankCode);
@@ -68,6 +77,8 @@ class CnabHeaderTest {
     assertThat(header.getAccountDigit()).isEqualTo(accountDigit);
     assertThat(header.getDate()).isEqualTo(date);
     assertThat(header.getDigit()).isEqualTo(digit);
+    assertThat(header.getCreatedAt()).isEqualTo(now);
+    assertThat(header.getUpdatedAt()).isEqualTo(now);
   }
 
   @Test
@@ -80,6 +91,7 @@ class CnabHeaderTest {
     final var agencyDigit = "other_agency_digit";
     final var digit = "other_digit";
     final var date = "other_date";
+    final var now = Instant.now();
 
     final var header = new CnabHeader(
         id,
@@ -89,10 +101,12 @@ class CnabHeaderTest {
         accountNumber,
         accountDigit,
         digit,
-        date
+        date,
+        now,
+        now
     );
 
-    assertThat(header.toString()).isEqualTo("CnabHeader{" +
+    assertThat(header.toString()).hasToString("CnabHeader{" +
         "id=" + id +
         ", bankCode='" + bankCode + '\'' +
         ", agencyCode='" + agencyCode + '\'' +
@@ -101,6 +115,8 @@ class CnabHeaderTest {
         ", accountDigit='" + accountDigit + '\'' +
         ", digit='" + digit + '\'' +
         ", date='" + date + '\'' +
+        ", createdAt=" + now +
+        ", updatedAt=" + now +
         '}');
   }
 }

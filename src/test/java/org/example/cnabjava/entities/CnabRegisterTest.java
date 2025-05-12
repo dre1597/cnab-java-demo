@@ -2,6 +2,7 @@ package org.example.cnabjava.entities;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.Instant;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,6 +24,7 @@ class CnabRegisterTest {
     final var historicCode = "any_historic_code";
     final var historicDescription = "any_historic_description";
     final var complement = "any_complement";
+    final var now = Instant.now();
 
     final var register = new CnabRegister(
         id,
@@ -38,7 +40,9 @@ class CnabRegisterTest {
         category,
         historicCode,
         historicDescription,
-        complement
+        complement,
+        now,
+        now
     );
 
     assertThat(register.getId()).isEqualTo(id);
@@ -55,6 +59,8 @@ class CnabRegisterTest {
     assertThat(register.getHistoricCode()).isEqualTo(historicCode);
     assertThat(register.getHistoricDescription()).isEqualTo(historicDescription);
     assertThat(register.getComplement()).isEqualTo(complement);
+    assertThat(register.getCreatedAt()).isEqualTo(now);
+    assertThat(register.getUpdatedAt()).isEqualTo(now);
   }
 
   @Test
@@ -73,6 +79,7 @@ class CnabRegisterTest {
     final var historicCode = "other_historic_code";
     final var historicDescription = "other_historic_description";
     final var complement = "other_complement";
+    final var now = Instant.now();
 
     final var register = new CnabRegister();
     register.setId(id);
@@ -89,6 +96,8 @@ class CnabRegisterTest {
     register.setHistoricCode(historicCode);
     register.setHistoricDescription(historicDescription);
     register.setComplement(complement);
+    register.setCreatedAt(now);
+    register.setUpdatedAt(now);
 
     assertThat(register.getId()).isEqualTo(id);
     assertThat(register.getAgencyCode()).isEqualTo(agencyCode);
@@ -104,6 +113,8 @@ class CnabRegisterTest {
     assertThat(register.getHistoricCode()).isEqualTo(historicCode);
     assertThat(register.getHistoricDescription()).isEqualTo(historicDescription);
     assertThat(register.getComplement()).isEqualTo(complement);
+    assertThat(register.getCreatedAt()).isEqualTo(now);
+    assertThat(register.getUpdatedAt()).isEqualTo(now);
   }
 
   @Test
@@ -122,6 +133,7 @@ class CnabRegisterTest {
     final var historicCode = "any_historic_code";
     final var historicDescription = "any_historic_description";
     final var complement = "any_complement";
+    final var now = Instant.now();
 
     final var register = new CnabRegister(
         id,
@@ -137,10 +149,12 @@ class CnabRegisterTest {
         category,
         historicCode,
         historicDescription,
-        complement
+        complement,
+        now,
+        now
     );
 
-    assertThat(register.toString()).isEqualTo(
+    assertThat(register.toString()).hasToString(
         "CnabRegister{" +
             "id=" + id +
             ", agencyCode='" + agencyCode + '\'' +
@@ -156,6 +170,8 @@ class CnabRegisterTest {
             ", historicCode='" + historicCode + '\'' +
             ", historicDescription='" + historicDescription + '\'' +
             ", complement='" + complement + '\'' +
+            ", createdAt=" + now +
+            ", updatedAt=" + now +
             '}'
     );
   }
