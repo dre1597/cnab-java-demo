@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 
 import java.util.UUID;
 
-@Entity()
+@Entity
 public class CnabFile {
   @Id
   private UUID id = UUID.randomUUID();
@@ -16,6 +16,9 @@ public class CnabFile {
 
   @Column(nullable = false)
   private CnabFileStatus status;
+
+  @Column(nullable = false)
+  private CnabType type;
 
   @Column
   private String errorMessage;
@@ -27,11 +30,13 @@ public class CnabFile {
       final UUID id,
       final UUID key,
       final CnabFileStatus status,
+      final CnabType type,
       final String errorMessage
   ) {
     this.id = id;
     this.key = key;
     this.status = status;
+    this.type = type;
     this.errorMessage = errorMessage;
   }
 
@@ -59,6 +64,14 @@ public class CnabFile {
     this.status = status;
   }
 
+  public CnabType getType() {
+    return this.type;
+  }
+
+  public void setType(final CnabType type) {
+    this.type = type;
+  }
+
   public String getErrorMessage() {
     return this.errorMessage;
   }
@@ -73,6 +86,7 @@ public class CnabFile {
         "id=" + id +
         ", key=" + key +
         ", status=" + status +
+        ", type=" + type +
         ", errorMessage='" + errorMessage + '\'' +
         '}';
   }

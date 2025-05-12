@@ -12,13 +12,15 @@ class CnabFileTest {
     final var id = UUID.randomUUID();
     final var key = UUID.randomUUID();
     final var status = CnabFileStatus.FAILED;
+    final var type = CnabType.CNAB240;
     final var error = "any_error";
 
-    final var file = new CnabFile(id, key, status, error);
+    final var file = new CnabFile(id, key, status, type, error);
 
     assertThat(file.getId()).isEqualTo(id);
     assertThat(file.getKey()).isEqualTo(key);
     assertThat(file.getStatus()).isEqualTo(status);
+    assertThat(file.getType()).isEqualTo(type);
     assertThat(file.getErrorMessage()).isEqualTo(error);
   }
 
@@ -27,17 +29,20 @@ class CnabFileTest {
     final var id = UUID.randomUUID();
     final var key = UUID.randomUUID();
     final var status = CnabFileStatus.FAILED;
+    final var type = CnabType.CNAB240;
     final var error = "other_error";
 
     final var file = new CnabFile();
     file.setId(id);
     file.setKey(key);
     file.setStatus(status);
+    file.setType(type);
     file.setErrorMessage(error);
 
     assertThat(file.getId()).isEqualTo(id);
     assertThat(file.getKey()).isEqualTo(key);
     assertThat(file.getStatus()).isEqualTo(status);
+    assertThat(file.getType()).isEqualTo(type);
     assertThat(file.getErrorMessage()).isEqualTo(error);
   }
 
@@ -46,9 +51,10 @@ class CnabFileTest {
     final var id = UUID.randomUUID();
     final var key = UUID.randomUUID();
     final var status = CnabFileStatus.SUCCESS;
+    final var type = CnabType.CNAB240;
     final String errorMessage = null;
 
-    final var file = new CnabFile(id, key, status, errorMessage);
+    final var file = new CnabFile(id, key, status, type, errorMessage);
 
     final var result = file.toString();
 
@@ -56,6 +62,7 @@ class CnabFileTest {
         .contains("id=" + id)
         .contains("key=" + key)
         .contains("status=" + status)
+        .contains("type=" + type)
         .contains("errorMessage=");
   }
 }
