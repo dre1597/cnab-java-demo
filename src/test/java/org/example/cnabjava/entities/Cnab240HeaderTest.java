@@ -7,7 +7,7 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class CnabHeaderTest {
+class Cnab240HeaderTest {
   @Test
   void shouldCreateUsingAllArgsConstructor() {
     final var id = UUID.randomUUID();
@@ -20,7 +20,7 @@ class CnabHeaderTest {
     final var date = "any_date";
     final var now = Instant.now();
 
-    final var header = new CnabHeader(
+    final var header = new Cnab240Header(
         id,
         bankCode,
         agencyCode,
@@ -57,7 +57,7 @@ class CnabHeaderTest {
     final var date = "other_date";
     final var now = Instant.now();
 
-    final var header = new CnabHeader();
+    final var header = new Cnab240Header();
     header.setId(id);
     header.setBankCode(bankCode);
     header.setAgencyCode(agencyCode);
@@ -93,7 +93,7 @@ class CnabHeaderTest {
     final var date = "other_date";
     final var now = Instant.now();
 
-    final var header = new CnabHeader(
+    final var header = new Cnab240Header(
         id,
         bankCode,
         agencyCode,

@@ -7,7 +7,7 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class CnabRegisterTest {
+class Cnab240RegisterTest {
   @Test
   void shouldCreateUsingAllArgsConstructor() {
     final var id = UUID.randomUUID();
@@ -26,7 +26,7 @@ class CnabRegisterTest {
     final var complement = "any_complement";
     final var now = Instant.now();
 
-    final var register = new CnabRegister(
+    final var register = new Cnab240Register(
         id,
         agencyCode,
         agencyDigit,
@@ -81,7 +81,7 @@ class CnabRegisterTest {
     final var complement = "other_complement";
     final var now = Instant.now();
 
-    final var register = new CnabRegister();
+    final var register = new Cnab240Register();
     register.setId(id);
     register.setAgencyCode(agencyCode);
     register.setAgencyDigit(agencyDigit);
@@ -135,7 +135,7 @@ class CnabRegisterTest {
     final var complement = "any_complement";
     final var now = Instant.now();
 
-    final var register = new CnabRegister(
+    final var register = new Cnab240Register(
         id,
         agencyCode,
         agencyDigit,

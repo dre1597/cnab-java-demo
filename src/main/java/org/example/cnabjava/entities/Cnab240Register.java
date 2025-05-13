@@ -10,12 +10,9 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Entity
-public class CnabHeader {
+public class Cnab240Register {
   @Id
   private UUID id = UUID.randomUUID();
-
-  @Column(nullable = false)
-  private String bankCode;
 
   @Column(nullable = false)
   private String agencyCode;
@@ -33,7 +30,28 @@ public class CnabHeader {
   private String digit;
 
   @Column(nullable = false)
-  private String date;
+  private String accountingDate;
+
+  @Column(nullable = false)
+  private String releaseDate;
+
+  @Column(nullable = false)
+  private String amount;
+
+  @Column(nullable = false)
+  private RegisterType type;
+
+  @Column(nullable = false)
+  private String category;
+
+  @Column(nullable = false)
+  private String historicCode;
+
+  @Column(nullable = false)
+  private String historicDescription;
+
+  @Column(nullable = false)
+  private String complement;
 
   @CreationTimestamp
   private Instant createdAt;
@@ -41,29 +59,40 @@ public class CnabHeader {
   @UpdateTimestamp
   private Instant updatedAt;
 
-  public CnabHeader() {
-  }
+  public Cnab240Register() {}
 
-  public CnabHeader(
+  public Cnab240Register(
       final UUID id,
-      final String bankCode,
       final String agencyCode,
       final String agencyDigit,
       final String accountNumber,
       final String accountDigit,
       final String digit,
-      final String date,
+      final String accountingDate,
+      final String releaseDate,
+      final String amount,
+      final RegisterType type,
+      final String category,
+      final String historicCode,
+      final String historicDescription,
+      final String complement,
       final Instant createdAt,
       final Instant updatedAt
   ) {
     this.id = id;
-    this.bankCode = bankCode;
     this.agencyCode = agencyCode;
     this.agencyDigit = agencyDigit;
     this.accountNumber = accountNumber;
     this.accountDigit = accountDigit;
     this.digit = digit;
-    this.date = date;
+    this.accountingDate = accountingDate;
+    this.releaseDate = releaseDate;
+    this.amount = amount;
+    this.type = type;
+    this.category = category;
+    this.historicCode = historicCode;
+    this.historicDescription = historicDescription;
+    this.complement = complement;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
@@ -74,14 +103,6 @@ public class CnabHeader {
 
   public void setId(final UUID id) {
     this.id = id;
-  }
-
-  public String getBankCode() {
-    return this.bankCode;
-  }
-
-  public void setBankCode(final String bankCode) {
-    this.bankCode = bankCode;
   }
 
   public String getAgencyCode() {
@@ -124,12 +145,68 @@ public class CnabHeader {
     this.digit = digit;
   }
 
-  public String getDate() {
-    return this.date;
+  public String getAccountingDate() {
+    return this.accountingDate;
   }
 
-  public void setDate(final String date) {
-    this.date = date;
+  public void setAccountingDate(final String accountingDate) {
+    this.accountingDate = accountingDate;
+  }
+
+  public String getReleaseDate() {
+    return this.releaseDate;
+  }
+
+  public void setReleaseDate(final String releaseDate) {
+    this.releaseDate = releaseDate;
+  }
+
+  public String getAmount() {
+    return this.amount;
+  }
+
+  public void setAmount(final String amount) {
+    this.amount = amount;
+  }
+
+  public RegisterType getType() {
+    return this.type;
+  }
+
+  public void setType(final RegisterType type) {
+    this.type = type;
+  }
+
+  public String getCategory() {
+    return this.category;
+  }
+
+  public void setCategory(final String category) {
+    this.category = category;
+  }
+
+  public String getHistoricCode() {
+    return this.historicCode;
+  }
+
+  public void setHistoricCode(final String historicCode) {
+    this.historicCode = historicCode;
+  }
+
+  public String getHistoricDescription() {
+    return this.historicDescription;
+  }
+
+  public void setHistoricDescription(final String historicDescription) {
+    this.historicDescription = historicDescription;
+  }
+
+  public String getComplement() {
+    return this.complement;
+  }
+
+  public void setComplement(final String complement) {
+    this.complement = complement;
   }
 
   public Instant getCreatedAt() {
@@ -150,15 +227,21 @@ public class CnabHeader {
 
   @Override
   public String toString() {
-    return "CnabHeader{" +
+    return "CnabRegister{" +
         "id=" + id +
-        ", bankCode='" + bankCode + '\'' +
         ", agencyCode='" + agencyCode + '\'' +
         ", agencyDigit='" + agencyDigit + '\'' +
         ", accountNumber='" + accountNumber + '\'' +
         ", accountDigit='" + accountDigit + '\'' +
         ", digit='" + digit + '\'' +
-        ", date='" + date + '\'' +
+        ", accountingDate='" + accountingDate + '\'' +
+        ", releaseDate='" + releaseDate + '\'' +
+        ", amount='" + amount + '\'' +
+        ", type=" + type +
+        ", category='" + category + '\'' +
+        ", historicCode='" + historicCode + '\'' +
+        ", historicDescription='" + historicDescription + '\'' +
+        ", complement='" + complement + '\'' +
         ", createdAt=" + createdAt +
         ", updatedAt=" + updatedAt +
         '}';
