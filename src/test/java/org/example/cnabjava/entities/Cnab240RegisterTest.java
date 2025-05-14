@@ -1,5 +1,6 @@
 package org.example.cnabjava.entities;
 
+import org.example.cnabjava.enums.Cnab240RegisterType;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
@@ -19,7 +20,7 @@ class Cnab240RegisterTest {
     final var accountingDate = "any_accounting_date";
     final var releaseDate = "any_release_date";
     final var amount = "any_amount";
-    final var type = RegisterType.DEBIT;
+    final var type = Cnab240RegisterType.DEBIT;
     final var category = "any_category";
     final var historicCode = "any_historic_code";
     final var historicDescription = "any_historic_description";
@@ -74,7 +75,7 @@ class Cnab240RegisterTest {
     final var accountingDate = "other_accounting_date";
     final var releaseDate = "other_release_date";
     final var amount = "other_amount";
-    final var type = RegisterType.DEBIT;
+    final var type = Cnab240RegisterType.DEBIT;
     final var category = "other_category";
     final var historicCode = "other_historic_code";
     final var historicDescription = "other_historic_description";
@@ -128,7 +129,7 @@ class Cnab240RegisterTest {
     final var accountingDate = "any_accounting_date";
     final var releaseDate = "any_release_date";
     final var amount = "any_amount";
-    final var type = RegisterType.DEBIT;
+    final var type = Cnab240RegisterType.DEBIT;
     final var category = "any_category";
     final var historicCode = "any_historic_code";
     final var historicDescription = "any_historic_description";

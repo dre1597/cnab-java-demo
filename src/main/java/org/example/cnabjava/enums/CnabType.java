@@ -1,4 +1,4 @@
-package org.example.cnabjava.entities;
+package org.example.cnabjava.enums;
 
 public enum CnabType {
   CNAB240,

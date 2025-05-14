@@ -1,5 +1,7 @@
 package org.example.cnabjava.entities;
 
+import org.example.cnabjava.enums.CnabFileStatus;
+import org.example.cnabjava.enums.CnabType;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;

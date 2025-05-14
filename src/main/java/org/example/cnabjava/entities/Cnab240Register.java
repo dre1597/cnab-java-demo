@@ -3,6 +3,7 @@ package org.example.cnabjava.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import org.example.cnabjava.enums.Cnab240RegisterType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -39,7 +40,7 @@ public class Cnab240Register {
   private String amount;
 
   @Column(nullable = false)
-  private RegisterType type;
+  private Cnab240RegisterType type;
 
   @Column(nullable = false)
   private String category;
@@ -71,7 +72,7 @@ public class Cnab240Register {
       final String accountingDate,
       final String releaseDate,
       final String amount,
-      final RegisterType type,
+      final Cnab240RegisterType type,
       final String category,
       final String historicCode,
       final String historicDescription,
@@ -169,11 +170,11 @@ public class Cnab240Register {
     this.amount = amount;
   }
 
-  public RegisterType getType() {
+  public Cnab240RegisterType getType() {
     return this.type;
   }
 
-  public void setType(final RegisterType type) {
+  public void setType(final Cnab240RegisterType type) {
     this.type = type;
   }
 
