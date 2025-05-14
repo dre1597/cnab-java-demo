@@ -19,8 +19,8 @@ class Cnab240HeaderTest {
     final var agencyDigit = "any_agency_digit";
     final var digit = "any_digit";
     final var companyName = "any_company_name";
-    final var date = "any_date";
-    final var time = "any_time";
+    final var date = "2025-01-01";
+    final var time = "00:00:00";
     final var sequentialNumber = "any_sequential_number";
     final var version = "any_version";
     final var numberOfRegisters = 1;
@@ -74,8 +74,8 @@ class Cnab240HeaderTest {
     final var agencyDigit = "other_agency_digit";
     final var digit = "other_digit";
     final var companyName = "other_company_name";
-    final var date = "other_date";
-    final var time = "other_time";
+    final var date = "2025-01-01";
+    final var time = "00:00:00";
     final var sequentialNumber = "other_sequential_number";
     final var version = "other_version";
     final var numberOfRegisters = 2;
@@ -128,8 +128,8 @@ class Cnab240HeaderTest {
     final var agencyDigit = "other_agency_digit";
     final var digit = "other_digit";
     final var companyName = "other_company_name";
-    final var date = "other_date";
-    final var time = "other_time";
+    final var date = "2025-01-01";
+    final var time = "00:00:00";
     final var sequentialNumber = "other_sequential_number";
     final var version = "other_version";
     final var numberOfRegisters = 2;
