@@ -26,6 +26,7 @@ class Cnab240RegisterTest {
     final var historicDescription = "any_historic_description";
     final var complement = "any_complement";
     final var now = Instant.now();
+    final var cnabHeader = this.createCnabHeader();
 
     final var register = new Cnab240Register(
         id,
@@ -43,7 +44,8 @@ class Cnab240RegisterTest {
         historicDescription,
         complement,
         now,
-        now
+        now,
+        cnabHeader
     );
 
     assertThat(register.getId()).isEqualTo(id);
@@ -62,6 +64,7 @@ class Cnab240RegisterTest {
     assertThat(register.getComplement()).isEqualTo(complement);
     assertThat(register.getCreatedAt()).isEqualTo(now);
     assertThat(register.getUpdatedAt()).isEqualTo(now);
+    assertThat(register.getCnabHeader()).isEqualTo(cnabHeader);
   }
 
   @Test
@@ -81,6 +84,7 @@ class Cnab240RegisterTest {
     final var historicDescription = "other_historic_description";
     final var complement = "other_complement";
     final var now = Instant.now();
+    final var cnabHeader = this.createCnabHeader();
 
     final var register = new Cnab240Register();
     register.setId(id);
@@ -99,6 +103,7 @@ class Cnab240RegisterTest {
     register.setComplement(complement);
     register.setCreatedAt(now);
     register.setUpdatedAt(now);
+    register.setCnabHeader(cnabHeader);
 
     assertThat(register.getId()).isEqualTo(id);
     assertThat(register.getAgencyCode()).isEqualTo(agencyCode);
@@ -116,6 +121,7 @@ class Cnab240RegisterTest {
     assertThat(register.getComplement()).isEqualTo(complement);
     assertThat(register.getCreatedAt()).isEqualTo(now);
     assertThat(register.getUpdatedAt()).isEqualTo(now);
+    assertThat(register.getCnabHeader()).isEqualTo(cnabHeader);
   }
 
   @Test
@@ -135,6 +141,7 @@ class Cnab240RegisterTest {
     final var historicDescription = "any_historic_description";
     final var complement = "any_complement";
     final var now = Instant.now();
+    final var cnabHeader = this.createCnabHeader();
 
     final var register = new Cnab240Register(
         id,
@@ -152,7 +159,8 @@ class Cnab240RegisterTest {
         historicDescription,
         complement,
         now,
-        now
+        now,
+        cnabHeader
     );
 
     assertThat(register.toString()).hasToString(
@@ -173,7 +181,30 @@ class Cnab240RegisterTest {
             ", complement='" + complement + '\'' +
             ", createdAt=" + now +
             ", updatedAt=" + now +
+            ", cnabHeader=" + cnabHeader +
             '}'
+    );
+  }
+
+  private Cnab240Header createCnabHeader() {
+    final var now = Instant.now();
+    return new Cnab240Header(
+        UUID.randomUUID(),
+        "any_cnpj",
+        "any_bank_code",
+        "any_agency_code",
+        "any_account_number",
+        "any_account_digit",
+        "any_agency_digit",
+        "any_digit",
+        "any_company_name",
+        "any_date",
+        "any_time",
+        "any_sequential_number",
+        "any_version",
+        1,
+        now,
+        now
     );
   }
 }

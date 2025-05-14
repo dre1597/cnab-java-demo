@@ -1,8 +1,6 @@
 package org.example.cnabjava.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.example.cnabjava.enums.PersonType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -57,6 +55,10 @@ public class Cnab750Register {
   @UpdateTimestamp
   private Instant updatedAt;
 
+  @ManyToOne
+  @JoinColumn(name = "cnab_header_id", nullable = false)
+  private Cnab750Header cnabHeader;
+
   public Cnab750Register() {
   }
 
@@ -75,7 +77,8 @@ public class Cnab750Register {
       final String payerName,
       final String endToEndId,
       final Instant createdAt,
-      final Instant updatedAt
+      final Instant updatedAt,
+      final Cnab750Header cnab750Header
   ) {
     this.id = id;
     this.txId = txId;
@@ -92,6 +95,7 @@ public class Cnab750Register {
     this.endToEndId = endToEndId;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
+    this.cnabHeader = cnab750Header;
   }
 
   public UUID getId() {
@@ -214,6 +218,14 @@ public class Cnab750Register {
     this.updatedAt = updatedAt;
   }
 
+  public Cnab750Header getCnabHeader() {
+    return this.cnabHeader;
+  }
+
+  public void setCnabHeader(final Cnab750Header cnab750Header) {
+    this.cnabHeader = cnab750Header;
+  }
+
   @Override
   public String toString() {
     return "Cnab750Register{" +
@@ -232,6 +244,7 @@ public class Cnab750Register {
         ", endToEndId='" + endToEndId + '\'' +
         ", createdAt=" + createdAt +
         ", updatedAt=" + updatedAt +
+        ", cnab750Header=" + cnabHeader +
         '}';
   }
 }

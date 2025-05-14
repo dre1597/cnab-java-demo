@@ -1,8 +1,6 @@
 package org.example.cnabjava.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.example.cnabjava.enums.Cnab240RegisterType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -60,6 +58,10 @@ public class Cnab240Register {
   @UpdateTimestamp
   private Instant updatedAt;
 
+  @ManyToOne
+  @JoinColumn(name = "cnab_header_id", nullable = false)
+  private Cnab240Header cnabHeader;
+
   public Cnab240Register() {}
 
   public Cnab240Register(
@@ -78,7 +80,8 @@ public class Cnab240Register {
       final String historicDescription,
       final String complement,
       final Instant createdAt,
-      final Instant updatedAt
+      final Instant updatedAt,
+      final Cnab240Header cnabHeader
   ) {
     this.id = id;
     this.agencyCode = agencyCode;
@@ -96,6 +99,7 @@ public class Cnab240Register {
     this.complement = complement;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
+    this.cnabHeader = cnabHeader;
   }
 
   public UUID getId() {
@@ -226,6 +230,14 @@ public class Cnab240Register {
     this.updatedAt = updatedAt;
   }
 
+  public Cnab240Header getCnabHeader() {
+    return this.cnabHeader;
+  }
+
+  public void setCnabHeader(final Cnab240Header cnabHeader) {
+    this.cnabHeader = cnabHeader;
+  }
+
   @Override
   public String toString() {
     return "CnabRegister{" +
@@ -245,6 +257,7 @@ public class Cnab240Register {
         ", complement='" + complement + '\'' +
         ", createdAt=" + createdAt +
         ", updatedAt=" + updatedAt +
+        ", cnabHeader=" + cnabHeader +
         '}';
   }
 }

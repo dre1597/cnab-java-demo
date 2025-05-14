@@ -25,6 +25,7 @@ class Cnab750RegisterTest {
     final var payerName = "any_payer_name";
     final var endToEndId = "any_end_to_end_id";
     final var now = Instant.now();
+    final var cnabHeader = this.createCnabHeader();
 
     final var cnab750Register = new Cnab750Register(
         id,
@@ -41,7 +42,8 @@ class Cnab750RegisterTest {
         payerName,
         endToEndId,
         now,
-        now
+        now,
+        cnabHeader
     );
 
     assertThat(cnab750Register.getId()).isEqualTo(id);
@@ -59,6 +61,7 @@ class Cnab750RegisterTest {
     assertThat(cnab750Register.getEndToEndId()).isEqualTo(endToEndId);
     assertThat(cnab750Register.getCreatedAt()).isEqualTo(now);
     assertThat(cnab750Register.getUpdatedAt()).isEqualTo(now);
+    assertThat(cnab750Register.getCnabHeader()).isEqualTo(cnabHeader);
   }
 
   @Test
@@ -77,6 +80,7 @@ class Cnab750RegisterTest {
     final var payerName = "other_payer_name";
     final var endToEndId = "other_end_to_end_id";
     final var now = Instant.now();
+    final var cnabHeader = this.createCnabHeader();
 
     final var cnab750Register = new Cnab750Register();
     cnab750Register.setId(id);
@@ -94,6 +98,7 @@ class Cnab750RegisterTest {
     cnab750Register.setEndToEndId(endToEndId);
     cnab750Register.setCreatedAt(now);
     cnab750Register.setUpdatedAt(now);
+    cnab750Register.setCnabHeader(cnabHeader);
 
     assertThat(cnab750Register.getId()).isEqualTo(id);
     assertThat(cnab750Register.getTxId()).isEqualTo(txId);
@@ -110,6 +115,7 @@ class Cnab750RegisterTest {
     assertThat(cnab750Register.getEndToEndId()).isEqualTo(endToEndId);
     assertThat(cnab750Register.getCreatedAt()).isEqualTo(now);
     assertThat(cnab750Register.getUpdatedAt()).isEqualTo(now);
+    assertThat(cnab750Register.getCnabHeader()).isEqualTo(cnabHeader);
   }
 
   @Test
@@ -128,6 +134,7 @@ class Cnab750RegisterTest {
     final var payerName = "any_payer_name";
     final var endToEndId = "any_end_to_end_id";
     final var now = Instant.now();
+    final var cnabHeader = this.createCnabHeader();
 
     final var cnab750Register = new Cnab750Register(
         id,
@@ -144,10 +151,11 @@ class Cnab750RegisterTest {
         payerName,
         endToEndId,
         now,
-        now
+        now,
+        cnabHeader
     );
 
-    assertThat(cnab750Register.toString()).isEqualTo("Cnab750Register{" +
+    assertThat(cnab750Register.toString()).hasToString("Cnab750Register{" +
         "id=" + id +
         ", txId='" + txId + '\'' +
         ", recipientPersonType=" + recipientPersonType +
@@ -163,6 +171,23 @@ class Cnab750RegisterTest {
         ", endToEndId='" + endToEndId + '\'' +
         ", createdAt=" + now +
         ", updatedAt=" + now +
+        ", cnab750Header=" + cnabHeader +
         '}');
+  }
+
+  private Cnab750Header createCnabHeader() {
+    final var now = Instant.now();
+    return new Cnab750Header(
+        UUID.randomUUID(),
+        "any_cnpj",
+        "any_agency_code",
+        "any_account_number",
+        "any_company_name",
+        "any_sequential_number",
+        "any_version",
+        1,
+        now,
+        now
+    );
   }
 }
