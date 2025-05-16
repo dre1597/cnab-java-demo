@@ -1,5 +1,7 @@
 package org.example.cnabjava.entities;
 
+import org.example.cnabjava.enums.CnabFileStatus;
+import org.example.cnabjava.enums.CnabType;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
@@ -25,6 +27,7 @@ class Cnab240HeaderTest {
     final var version = "any_version";
     final var numberOfRegisters = 1;
     final var now = Instant.now();
+    final var cnabFile = this.createCnabFile();
 
     final var header = new Cnab240Header(
         id,
@@ -42,7 +45,8 @@ class Cnab240HeaderTest {
         version,
         numberOfRegisters,
         now,
-        now
+        now,
+        cnabFile
     );
 
     assertThat(header.getId()).isEqualTo(id);
@@ -61,6 +65,7 @@ class Cnab240HeaderTest {
     assertThat(header.getNumberOfRegisters()).isEqualTo(numberOfRegisters);
     assertThat(header.getCreatedAt()).isEqualTo(now);
     assertThat(header.getUpdatedAt()).isEqualTo(now);
+    assertThat(header.getCnabFile()).isEqualTo(cnabFile);
   }
 
   @Test
@@ -80,6 +85,7 @@ class Cnab240HeaderTest {
     final var version = "other_version";
     final var numberOfRegisters = 2;
     final var now = Instant.now();
+    final var cnabFile = this.createCnabFile();
 
     final var header = new Cnab240Header();
     header.setId(id);
@@ -98,6 +104,7 @@ class Cnab240HeaderTest {
     header.setNumberOfRegisters(numberOfRegisters);
     header.setCreatedAt(now);
     header.setUpdatedAt(now);
+    header.setCnabFile(cnabFile);
 
     assertThat(header.getId()).isEqualTo(id);
     assertThat(header.getCnpj()).isEqualTo(cnpj);
@@ -115,6 +122,7 @@ class Cnab240HeaderTest {
     assertThat(header.getNumberOfRegisters()).isEqualTo(numberOfRegisters);
     assertThat(header.getCreatedAt()).isEqualTo(now);
     assertThat(header.getUpdatedAt()).isEqualTo(now);
+    assertThat(header.getCnabFile()).isEqualTo(cnabFile);
   }
 
   @Test
@@ -134,6 +142,7 @@ class Cnab240HeaderTest {
     final var version = "other_version";
     final var numberOfRegisters = 2;
     final var now = Instant.now();
+    final var cnabFile = this.createCnabFile();
 
     final var header = new Cnab240Header(
         id,
@@ -151,7 +160,8 @@ class Cnab240HeaderTest {
         version,
         numberOfRegisters,
         now,
-        now
+        now,
+        cnabFile
     );
 
     assertThat(header.toString()).hasToString("CnabHeader{" +
@@ -171,6 +181,20 @@ class Cnab240HeaderTest {
         ", numberOfRegisters=" + numberOfRegisters +
         ", createdAt=" + now +
         ", updatedAt=" + now +
+        ", cnabFile=" + cnabFile +
         '}');
+  }
+
+  private CnabFile createCnabFile() {
+    final var now = Instant.now();
+    return new CnabFile(
+        UUID.randomUUID(),
+        UUID.randomUUID(),
+        CnabFileStatus.SUCCESS,
+        CnabType.CNAB240,
+        null,
+        now,
+        now
+    );
   }
 }

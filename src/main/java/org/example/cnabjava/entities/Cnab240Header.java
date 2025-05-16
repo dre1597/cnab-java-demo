@@ -1,8 +1,6 @@
 package org.example.cnabjava.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -59,6 +57,10 @@ public class Cnab240Header {
   @UpdateTimestamp
   private Instant updatedAt;
 
+  @ManyToOne
+  @JoinColumn(name = "cnab_file_id", nullable = false)
+  private CnabFile cnabFile;
+
   public Cnab240Header() {
   }
 
@@ -78,7 +80,8 @@ public class Cnab240Header {
       final String version,
       final int numberOfRegisters,
       final Instant createdAt,
-      final Instant updatedAt
+      final Instant updatedAt,
+      final CnabFile cnabFile
   ) {
     this.id = id;
     this.cnpj = cnpj;
@@ -96,6 +99,7 @@ public class Cnab240Header {
     this.numberOfRegisters = numberOfRegisters;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
+    this.cnabFile = cnabFile;
   }
 
   public UUID getId() {
@@ -226,6 +230,14 @@ public class Cnab240Header {
     this.updatedAt = updatedAt;
   }
 
+  public CnabFile getCnabFile() {
+    return this.cnabFile;
+  }
+
+  public void setCnabFile(final CnabFile cnabFile) {
+    this.cnabFile = cnabFile;
+  }
+
   @Override
   public String toString() {
     return "CnabHeader{" +
@@ -245,6 +257,7 @@ public class Cnab240Header {
         ", numberOfRegisters=" + numberOfRegisters +
         ", createdAt=" + createdAt +
         ", updatedAt=" + updatedAt +
+        ", cnabFile=" + cnabFile +
         '}';
   }
 }

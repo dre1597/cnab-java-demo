@@ -1,5 +1,7 @@
 package org.example.cnabjava.entities;
 
+import org.example.cnabjava.enums.CnabFileStatus;
+import org.example.cnabjava.enums.CnabType;
 import org.example.cnabjava.enums.PersonType;
 import org.junit.jupiter.api.Test;
 
@@ -186,6 +188,20 @@ class Cnab750RegisterTest {
         "any_sequential_number",
         "any_version",
         1,
+        now,
+        now,
+        this.createCnabFile()
+    );
+  }
+
+  private CnabFile createCnabFile() {
+    final var now = Instant.now();
+    return new CnabFile(
+        UUID.randomUUID(),
+        UUID.randomUUID(),
+        CnabFileStatus.SUCCESS,
+        CnabType.CNAB750,
+        null,
         now,
         now
     );
