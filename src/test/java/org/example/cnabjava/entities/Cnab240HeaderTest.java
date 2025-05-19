@@ -189,7 +189,7 @@ class Cnab240HeaderTest {
     final var now = Instant.now();
     return new CnabFile(
         UUID.randomUUID(),
-        UUID.randomUUID(),
+        "any_file_name",
         CnabFileStatus.SUCCESS,
         CnabType.CNAB240,
         null,

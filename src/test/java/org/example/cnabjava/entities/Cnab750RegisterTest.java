@@ -198,7 +198,7 @@ class Cnab750RegisterTest {
     final var now = Instant.now();
     return new CnabFile(
         UUID.randomUUID(),
-        UUID.randomUUID(),
+        "any_file_name",
         CnabFileStatus.SUCCESS,
         CnabType.CNAB750,
         null,

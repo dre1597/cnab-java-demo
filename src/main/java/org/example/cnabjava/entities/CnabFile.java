@@ -17,7 +17,7 @@ public class CnabFile {
   private UUID id = UUID.randomUUID();
 
   @Column(nullable = false)
-  private UUID key;
+  private String fileName;
 
   @Column(nullable = false)
   private CnabFileStatus status;
@@ -38,8 +38,21 @@ public class CnabFile {
   }
 
   public CnabFile(
+      final String fileName,
+      final CnabFileStatus status,
+      final CnabType type
+  ) {
+    this.fileName = fileName;
+    this.status = status;
+    this.type = type;
+    this.errorMessage = null;
+    this.createdAt = Instant.now();
+    this.updatedAt = Instant.now();
+  }
+
+  public CnabFile(
       final UUID id,
-      final UUID key,
+      final String fileName,
       final CnabFileStatus status,
       final CnabType type,
       final String errorMessage,
@@ -47,7 +60,7 @@ public class CnabFile {
       final Instant updatedAt
   ) {
     this.id = id;
-    this.key = key;
+    this.fileName = fileName;
     this.status = status;
     this.type = type;
     this.errorMessage = errorMessage;
@@ -63,12 +76,12 @@ public class CnabFile {
     this.id = id;
   }
 
-  public UUID getKey() {
-    return this.key;
+  public String getFileName() {
+    return this.fileName;
   }
 
-  public void setKey(final UUID key) {
-    this.key = key;
+  public void setFileName(final String fileName) {
+    this.fileName = fileName;
   }
 
   public CnabFileStatus getStatus() {
@@ -115,7 +128,7 @@ public class CnabFile {
   public String toString() {
     return "CnabFile{" +
         "id=" + id +
-        ", key=" + key +
+        ", fileName=" + fileName +
         ", status=" + status +
         ", type=" + type +
         ", errorMessage='" + errorMessage + '\'' +
