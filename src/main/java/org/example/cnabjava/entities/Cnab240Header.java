@@ -13,10 +13,10 @@ public class Cnab240Header {
   private UUID id = UUID.randomUUID();
 
   @Column(nullable = false)
-  private String cnpj;
+  private String bankCode;
 
   @Column(nullable = false)
-  private String bankCode;
+  private String cnpj;
 
   @Column(nullable = false)
   private String agencyCode;
@@ -51,8 +51,8 @@ public class Cnab240Header {
 
   public Cnab240Header(
       final UUID id,
-      final String cnpj,
       final String bankCode,
+      final String cnpj,
       final String agencyCode,
       final String accountNumber,
       final String companyName,
@@ -64,8 +64,8 @@ public class Cnab240Header {
       final CnabFile cnabFile
   ) {
     this.id = id;
-    this.cnpj = cnpj;
     this.bankCode = bankCode;
+    this.cnpj = cnpj;
     this.agencyCode = agencyCode;
     this.accountNumber = accountNumber;
     this.companyName = companyName;
@@ -85,20 +85,20 @@ public class Cnab240Header {
     this.id = id;
   }
 
-  public String getCnpj() {
-    return this.cnpj;
-  }
-
-  public void setCnpj(final String cnpj) {
-    this.cnpj = cnpj;
-  }
-
   public String getBankCode() {
     return this.bankCode;
   }
 
   public void setBankCode(final String bankCode) {
     this.bankCode = bankCode;
+  }
+
+  public String getCnpj() {
+    return this.cnpj;
+  }
+
+  public void setCnpj(final String cnpj) {
+    this.cnpj = cnpj;
   }
 
   public String getAgencyCode() {
@@ -177,8 +177,8 @@ public class Cnab240Header {
   public String toString() {
     return "CnabHeader{" +
         "id=" + id +
-        ", cnpj='" + cnpj + '\'' +
         ", bankCode='" + bankCode + '\'' +
+        ", cnpj='" + cnpj + '\'' +
         ", agencyCode='" + agencyCode + '\'' +
         ", accountNumber='" + accountNumber + '\'' +
         ", companyName='" + companyName + '\'' +

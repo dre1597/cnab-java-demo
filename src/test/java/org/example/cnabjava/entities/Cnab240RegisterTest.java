@@ -14,6 +14,7 @@ class Cnab240RegisterTest {
   @Test
   void shouldCreateUsingAllArgsConstructor() {
     final var id = UUID.randomUUID();
+    final var bankCode = "any_bank_code";
     final var agencyCode = "any_agency_code";
     final var accountNumber = "any_account_number";
     final var accountingDate = "any_accounting_date";
@@ -29,6 +30,7 @@ class Cnab240RegisterTest {
 
     final var register = new Cnab240Register(
         id,
+        bankCode,
         agencyCode,
         accountNumber,
         accountingDate,
@@ -45,6 +47,7 @@ class Cnab240RegisterTest {
     );
 
     assertThat(register.getId()).isEqualTo(id);
+    assertThat(register.getBankCode()).isEqualTo(bankCode);
     assertThat(register.getAgencyCode()).isEqualTo(agencyCode);
     assertThat(register.getAccountNumber()).isEqualTo(accountNumber);
     assertThat(register.getAccountingDate()).isEqualTo(accountingDate);
@@ -63,6 +66,7 @@ class Cnab240RegisterTest {
   @Test
   void shouldSetAndGetAllFields() {
     final var id = UUID.randomUUID();
+    final var bankCode = "other_bank_code";
     final var agencyCode = "other_agency_code";
     final var accountNumber = "other_account_number";
     final var accountingDate = "other_accounting_date";
@@ -78,6 +82,7 @@ class Cnab240RegisterTest {
 
     final var register = new Cnab240Register();
     register.setId(id);
+    register.setBankCode(bankCode);
     register.setAgencyCode(agencyCode);
     register.setAccountNumber(accountNumber);
     register.setAccountingDate(accountingDate);
@@ -93,6 +98,7 @@ class Cnab240RegisterTest {
     register.setCnabHeader(cnabHeader);
 
     assertThat(register.getId()).isEqualTo(id);
+    assertThat(register.getBankCode()).isEqualTo(bankCode);
     assertThat(register.getAgencyCode()).isEqualTo(agencyCode);
     assertThat(register.getAccountNumber()).isEqualTo(accountNumber);
     assertThat(register.getAccountingDate()).isEqualTo(accountingDate);
@@ -111,6 +117,7 @@ class Cnab240RegisterTest {
   @Test
   void shouldGenerateToString() {
     final var id = UUID.randomUUID();
+    final var bankCode = "any_bank_code";
     final var agencyCode = "any_agency_code";
     final var accountNumber = "any_account_number";
     final var accountingDate = "any_accounting_date";
@@ -126,6 +133,7 @@ class Cnab240RegisterTest {
 
     final var register = new Cnab240Register(
         id,
+        bankCode,
         agencyCode,
         accountNumber,
         accountingDate,
@@ -144,6 +152,7 @@ class Cnab240RegisterTest {
     assertThat(register.toString()).hasToString(
         "CnabRegister{" +
             "id=" + id +
+            ", bankCode='" + bankCode + '\'' +
             ", agencyCode='" + agencyCode + '\'' +
             ", accountNumber='" + accountNumber + '\'' +
             ", accountingDate='" + accountingDate + '\'' +

@@ -17,9 +17,8 @@ class CnabExtractHeaderDataTest {
 
     assertThat(result).isInstanceOf(Map.class);
     assertThat(result).containsKeys(
-        "cnpj", "agencyCode", "agencyDigit", "checkingAccount",
-        "companyCheckingAccountDigit", "digit", "companyName",
-        "bankName", "cnabDate", "cnabTime", "sequentialNumber", "version"
+        "bankCode", "cnpj", "agencyCode", "accountNumber", "companyName",
+        "date", "time"
     );
   }
 
@@ -32,9 +31,7 @@ class CnabExtractHeaderDataTest {
 
     assertThat(result).isInstanceOf(Map.class);
     assertThat(result).containsKeys(
-        "cnpj", "agency", "companyAccount", "pixKey",
-        "cnabDate", "companyName", "returnSequentialNumber",
-        "version", "registerSequentialNumber"
+        "cnpj", "agencyCode", "accountNumber", "companyName"
     );
   }
 

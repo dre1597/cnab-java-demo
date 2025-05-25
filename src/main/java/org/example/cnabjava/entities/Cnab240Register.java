@@ -14,8 +14,11 @@ public class Cnab240Register {
   private UUID id = UUID.randomUUID();
 
   @Column(nullable = false)
+  private String bankCode;
+
+  @Column(nullable = false)
   private String agencyCode;
-  
+
   @Column(nullable = false)
   private String accountNumber;
 
@@ -58,6 +61,7 @@ public class Cnab240Register {
 
   public Cnab240Register(
       final UUID id,
+      final String bankCode,
       final String agencyCode,
       final String accountNumber,
       final String accountingDate,
@@ -73,6 +77,7 @@ public class Cnab240Register {
       final Cnab240Header cnabHeader
   ) {
     this.id = id;
+    this.bankCode = bankCode;
     this.agencyCode = agencyCode;
     this.accountNumber = accountNumber;
     this.accountingDate = accountingDate;
@@ -94,6 +99,14 @@ public class Cnab240Register {
 
   public void setId(final UUID id) {
     this.id = id;
+  }
+
+  public String getBankCode() {
+    return this.bankCode;
+  }
+
+  public void setBankCode(final String bankCode) {
+    this.bankCode = bankCode;
   }
 
   public String getAgencyCode() {
@@ -204,6 +217,7 @@ public class Cnab240Register {
   public String toString() {
     return "CnabRegister{" +
         "id=" + id +
+        ", bankCode='" + bankCode + '\'' +
         ", agencyCode='" + agencyCode + '\'' +
         ", accountNumber='" + accountNumber + '\'' +
         ", accountingDate='" + accountingDate + '\'' +

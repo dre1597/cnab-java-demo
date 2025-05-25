@@ -13,8 +13,8 @@ class Cnab240HeaderTest {
   @Test
   void shouldCreateUsingAllArgsConstructor() {
     final var id = UUID.randomUUID();
-    final var cnpj = "any_cnpj";
     final var bankCode = "any_bank_code";
+    final var cnpj = "any_cnpj";
     final var agencyCode = "any_agency_code";
     final var accountNumber = "any_account_number";
     final var companyName = "any_company_name";
@@ -26,8 +26,8 @@ class Cnab240HeaderTest {
 
     final var header = new Cnab240Header(
         id,
-        cnpj,
         bankCode,
+        cnpj,
         agencyCode,
         accountNumber,
         companyName,
@@ -40,8 +40,8 @@ class Cnab240HeaderTest {
     );
 
     assertThat(header.getId()).isEqualTo(id);
-    assertThat(header.getCnpj()).isEqualTo(cnpj);
     assertThat(header.getBankCode()).isEqualTo(bankCode);
+    assertThat(header.getCnpj()).isEqualTo(cnpj);
     assertThat(header.getAgencyCode()).isEqualTo(agencyCode);
     assertThat(header.getAccountNumber()).isEqualTo(accountNumber);
     assertThat(header.getCompanyName()).isEqualTo(companyName);
@@ -56,8 +56,8 @@ class Cnab240HeaderTest {
   @Test
   void shouldSetAndGetAllFields() {
     final var id = UUID.randomUUID();
-    final var cnpj = "other_cnpj";
     final var bankCode = "other_bank_code";
+    final var cnpj = "other_cnpj";
     final var agencyCode = "other_agency_code";
     final var accountNumber = "other_account_number";
     final var companyName = "other_company_name";
@@ -69,8 +69,8 @@ class Cnab240HeaderTest {
 
     final var header = new Cnab240Header();
     header.setId(id);
-    header.setCnpj(cnpj);
     header.setBankCode(bankCode);
+    header.setCnpj(cnpj);
     header.setAgencyCode(agencyCode);
     header.setAccountNumber(accountNumber);
     header.setCompanyName(companyName);
@@ -82,8 +82,8 @@ class Cnab240HeaderTest {
     header.setCnabFile(cnabFile);
 
     assertThat(header.getId()).isEqualTo(id);
-    assertThat(header.getCnpj()).isEqualTo(cnpj);
     assertThat(header.getBankCode()).isEqualTo(bankCode);
+    assertThat(header.getCnpj()).isEqualTo(cnpj);
     assertThat(header.getAgencyCode()).isEqualTo(agencyCode);
     assertThat(header.getAccountNumber()).isEqualTo(accountNumber);
     assertThat(header.getCompanyName()).isEqualTo(companyName);
@@ -98,8 +98,8 @@ class Cnab240HeaderTest {
   @Test
   void shouldGenerateToString() {
     final var id = UUID.randomUUID();
-    final var cnpj = "other_cnpj";
     final var bankCode = "other_bank_code";
+    final var cnpj = "other_cnpj";
     final var agencyCode = "other_agency_code";
     final var accountNumber = "other_account_number";
     final var companyName = "other_company_name";
@@ -111,8 +111,8 @@ class Cnab240HeaderTest {
 
     final var header = new Cnab240Header(
         id,
-        cnpj,
         bankCode,
+        cnpj,
         agencyCode,
         accountNumber,
         companyName,
@@ -126,8 +126,8 @@ class Cnab240HeaderTest {
 
     assertThat(header.toString()).hasToString("CnabHeader{" +
         "id=" + id +
-        ", cnpj='" + cnpj + '\'' +
         ", bankCode='" + bankCode + '\'' +
+        ", cnpj='" + cnpj + '\'' +
         ", agencyCode='" + agencyCode + '\'' +
         ", accountNumber='" + accountNumber + '\'' +
         ", companyName='" + companyName + '\'' +
