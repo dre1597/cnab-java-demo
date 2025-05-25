@@ -16,14 +16,9 @@ public class Cnab240Register {
   @Column(nullable = false)
   private String agencyCode;
 
-  @Column(nullable = false)
-  private String agencyDigit;
 
   @Column(nullable = false)
   private String accountNumber;
-
-  @Column(nullable = false)
-  private String accountDigit;
 
   @Column(nullable = false)
   private String digit;
@@ -62,15 +57,13 @@ public class Cnab240Register {
   @JoinColumn(name = "cnab_header_id", nullable = false)
   private Cnab240Header cnabHeader;
 
-  public Cnab240Register() {}
+  public Cnab240Register() {
+  }
 
   public Cnab240Register(
       final UUID id,
       final String agencyCode,
-      final String agencyDigit,
       final String accountNumber,
-      final String accountDigit,
-      final String digit,
       final String accountingDate,
       final String releaseDate,
       final String amount,
@@ -85,10 +78,7 @@ public class Cnab240Register {
   ) {
     this.id = id;
     this.agencyCode = agencyCode;
-    this.agencyDigit = agencyDigit;
     this.accountNumber = accountNumber;
-    this.accountDigit = accountDigit;
-    this.digit = digit;
     this.accountingDate = accountingDate;
     this.releaseDate = releaseDate;
     this.amount = amount;
@@ -118,28 +108,12 @@ public class Cnab240Register {
     this.agencyCode = agencyCode;
   }
 
-  public String getAgencyDigit() {
-    return this.agencyDigit;
-  }
-
-  public void setAgencyDigit(final String agencyDigit) {
-    this.agencyDigit = agencyDigit;
-  }
-
   public String getAccountNumber() {
     return this.accountNumber;
   }
 
   public void setAccountNumber(final String accountNumber) {
     this.accountNumber = accountNumber;
-  }
-
-  public String getAccountDigit() {
-    return this.accountDigit;
-  }
-
-  public void setAccountDigit(final String accountDigit) {
-    this.accountDigit = accountDigit;
   }
 
   public String getDigit() {
@@ -243,10 +217,7 @@ public class Cnab240Register {
     return "CnabRegister{" +
         "id=" + id +
         ", agencyCode='" + agencyCode + '\'' +
-        ", agencyDigit='" + agencyDigit + '\'' +
         ", accountNumber='" + accountNumber + '\'' +
-        ", accountDigit='" + accountDigit + '\'' +
-        ", digit='" + digit + '\'' +
         ", accountingDate='" + accountingDate + '\'' +
         ", releaseDate='" + releaseDate + '\'' +
         ", amount='" + amount + '\'' +

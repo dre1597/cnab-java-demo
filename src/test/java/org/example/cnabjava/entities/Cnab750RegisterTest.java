@@ -15,6 +15,7 @@ class Cnab750RegisterTest {
   void shouldCreateUsingAllArgsConstructor() {
     final var id = UUID.randomUUID();
     final var txId = "any_tx_id";
+    final var receiptBankIspb = "any_receipt_bank_ispb";
     final var recipientPersonType = PersonType.CNPJ;
     final var recipientAgency = "any_recipient_agency";
     final var recipientAccount = "any_recipient_account";
@@ -32,6 +33,7 @@ class Cnab750RegisterTest {
     final var cnab750Register = new Cnab750Register(
         id,
         txId,
+        receiptBankIspb,
         recipientPersonType,
         recipientAgency,
         recipientAccount,
@@ -50,6 +52,7 @@ class Cnab750RegisterTest {
 
     assertThat(cnab750Register.getId()).isEqualTo(id);
     assertThat(cnab750Register.getTxId()).isEqualTo(txId);
+    assertThat(cnab750Register.getReceiptBankIspb()).isEqualTo(receiptBankIspb);
     assertThat(cnab750Register.getRecipientPersonType()).isEqualTo(recipientPersonType);
     assertThat(cnab750Register.getRecipientAgency()).isEqualTo(recipientAgency);
     assertThat(cnab750Register.getRecipientAccount()).isEqualTo(recipientAccount);
@@ -70,6 +73,7 @@ class Cnab750RegisterTest {
   void shouldSetAndGetAllFields() {
     final var id = UUID.randomUUID();
     final var txId = "other_tx_id";
+    final var receiptBankIspb = "other_receipt_bank_ispb";
     final var recipientPersonType = PersonType.CPF;
     final var recipientAgency = "other_recipient_agency";
     final var recipientAccount = "other_recipient_account";
@@ -87,6 +91,7 @@ class Cnab750RegisterTest {
     final var cnab750Register = new Cnab750Register();
     cnab750Register.setId(id);
     cnab750Register.setTxId(txId);
+    cnab750Register.setReceiptBankIspb(receiptBankIspb);
     cnab750Register.setRecipientPersonType(recipientPersonType);
     cnab750Register.setRecipientAgency(recipientAgency);
     cnab750Register.setRecipientAccount(recipientAccount);
@@ -104,6 +109,7 @@ class Cnab750RegisterTest {
 
     assertThat(cnab750Register.getId()).isEqualTo(id);
     assertThat(cnab750Register.getTxId()).isEqualTo(txId);
+    assertThat(cnab750Register.getReceiptBankIspb()).isEqualTo(receiptBankIspb);
     assertThat(cnab750Register.getRecipientPersonType()).isEqualTo(recipientPersonType);
     assertThat(cnab750Register.getRecipientAgency()).isEqualTo(recipientAgency);
     assertThat(cnab750Register.getRecipientAccount()).isEqualTo(recipientAccount);
@@ -124,6 +130,7 @@ class Cnab750RegisterTest {
   void shouldGenerateToString() {
     final var id = UUID.randomUUID();
     final var txId = "any_tx_id";
+    final var receiptBankIspb = "any_receipt_bank_ispb";
     final var recipientPersonType = PersonType.CNPJ;
     final var recipientAgency = "any_recipient_agency";
     final var recipientAccount = "any_recipient_account";
@@ -141,6 +148,7 @@ class Cnab750RegisterTest {
     final var cnab750Register = new Cnab750Register(
         id,
         txId,
+        receiptBankIspb,
         recipientPersonType,
         recipientAgency,
         recipientAccount,
@@ -160,6 +168,7 @@ class Cnab750RegisterTest {
     assertThat(cnab750Register.toString()).hasToString("Cnab750Register{" +
         "id=" + id +
         ", txId='" + txId + '\'' +
+        ", receiptBankIspb='" + receiptBankIspb + '\'' +
         ", recipientPersonType=" + recipientPersonType +
         ", recipientAgency='" + recipientAgency + '\'' +
         ", recipientAccount='" + recipientAccount + '\'' +
@@ -185,8 +194,6 @@ class Cnab750RegisterTest {
         "any_agency_code",
         "any_account_number",
         "any_company_name",
-        "any_sequential_number",
-        "any_version",
         1,
         now,
         now,

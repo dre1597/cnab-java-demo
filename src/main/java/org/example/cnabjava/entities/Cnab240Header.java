@@ -22,16 +22,7 @@ public class Cnab240Header {
   private String agencyCode;
 
   @Column(nullable = false)
-  private String agencyDigit;
-
-  @Column(nullable = false)
   private String accountNumber;
-
-  @Column(nullable = false)
-  private String accountDigit;
-
-  @Column(nullable = false)
-  private String digit;
 
   @Column(nullable = false)
   private String companyName;
@@ -41,12 +32,6 @@ public class Cnab240Header {
 
   @Column(nullable = false)
   private String time;
-
-  @Column(nullable = false)
-  private String sequentialNumber;
-
-  @Column(nullable = false)
-  private String version;
 
   @Column(nullable = false)
   private int numberOfRegisters;
@@ -69,15 +54,10 @@ public class Cnab240Header {
       final String cnpj,
       final String bankCode,
       final String agencyCode,
-      final String agencyDigit,
       final String accountNumber,
-      final String accountDigit,
-      final String digit,
       final String companyName,
       final String date,
       final String time,
-      final String sequentialNumber,
-      final String version,
       final int numberOfRegisters,
       final Instant createdAt,
       final Instant updatedAt,
@@ -87,15 +67,10 @@ public class Cnab240Header {
     this.cnpj = cnpj;
     this.bankCode = bankCode;
     this.agencyCode = agencyCode;
-    this.agencyDigit = agencyDigit;
     this.accountNumber = accountNumber;
-    this.accountDigit = accountDigit;
-    this.digit = digit;
     this.companyName = companyName;
     this.date = date;
     this.time = time;
-    this.sequentialNumber = sequentialNumber;
-    this.version = version;
     this.numberOfRegisters = numberOfRegisters;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
@@ -134,36 +109,12 @@ public class Cnab240Header {
     this.agencyCode = agencyCode;
   }
 
-  public String getAgencyDigit() {
-    return this.agencyDigit;
-  }
-
-  public void setAgencyDigit(final String agencyDigit) {
-    this.agencyDigit = agencyDigit;
-  }
-
   public String getAccountNumber() {
     return this.accountNumber;
   }
 
   public void setAccountNumber(final String accountNumber) {
     this.accountNumber = accountNumber;
-  }
-
-  public String getAccountDigit() {
-    return this.accountDigit;
-  }
-
-  public void setAccountDigit(final String accountDigit) {
-    this.accountDigit = accountDigit;
-  }
-
-  public String getDigit() {
-    return this.digit;
-  }
-
-  public void setDigit(final String digit) {
-    this.digit = digit;
   }
 
   public String getCompanyName() {
@@ -188,22 +139,6 @@ public class Cnab240Header {
 
   public void setTime(final String time) {
     this.time = time;
-  }
-
-  public String getSequentialNumber() {
-    return this.sequentialNumber;
-  }
-
-  public void setSequentialNumber(final String sequentialNumber) {
-    this.sequentialNumber = sequentialNumber;
-  }
-
-  public String getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(final String version) {
-    this.version = version;
   }
 
   public int getNumberOfRegisters() {
@@ -245,15 +180,10 @@ public class Cnab240Header {
         ", cnpj='" + cnpj + '\'' +
         ", bankCode='" + bankCode + '\'' +
         ", agencyCode='" + agencyCode + '\'' +
-        ", agencyDigit='" + agencyDigit + '\'' +
         ", accountNumber='" + accountNumber + '\'' +
-        ", accountDigit='" + accountDigit + '\'' +
-        ", digit='" + digit + '\'' +
         ", companyName='" + companyName + '\'' +
         ", date='" + date + '\'' +
         ", time='" + time + '\'' +
-        ", sequentialNumber='" + sequentialNumber + '\'' +
-        ", version='" + version + '\'' +
         ", numberOfRegisters=" + numberOfRegisters +
         ", createdAt=" + createdAt +
         ", updatedAt=" + updatedAt +

@@ -17,6 +17,9 @@ public class Cnab750Register {
   private String txId;
 
   @Column(nullable = false)
+  private String receiptBankIspb;
+
+  @Column(nullable = false)
   private PersonType recipientPersonType;
 
   @Column(nullable = false)
@@ -65,6 +68,7 @@ public class Cnab750Register {
   public Cnab750Register(
       final UUID id,
       final String txId,
+      final String receiptBankIspb,
       final PersonType recipientPersonType,
       final String recipientAgency,
       final String recipientAccount,
@@ -82,6 +86,7 @@ public class Cnab750Register {
   ) {
     this.id = id;
     this.txId = txId;
+    this.receiptBankIspb = receiptBankIspb;
     this.recipientPersonType = recipientPersonType;
     this.recipientAgency = recipientAgency;
     this.recipientAccount = recipientAccount;
@@ -112,6 +117,14 @@ public class Cnab750Register {
 
   public void setTxId(final String txId) {
     this.txId = txId;
+  }
+
+  public String getReceiptBankIspb() {
+    return this.receiptBankIspb;
+  }
+
+  public void setReceiptBankIspb(final String receiptBankIspb) {
+    this.receiptBankIspb = receiptBankIspb;
   }
 
   public PersonType getRecipientPersonType() {
@@ -231,6 +244,7 @@ public class Cnab750Register {
     return "Cnab750Register{" +
         "id=" + id +
         ", txId='" + txId + '\'' +
+        ", receiptBankIspb='" + receiptBankIspb + '\'' +
         ", recipientPersonType=" + recipientPersonType +
         ", recipientAgency='" + recipientAgency + '\'' +
         ", recipientAccount='" + recipientAccount + '\'' +

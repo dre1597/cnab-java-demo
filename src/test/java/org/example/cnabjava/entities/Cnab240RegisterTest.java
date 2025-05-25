@@ -15,10 +15,7 @@ class Cnab240RegisterTest {
   void shouldCreateUsingAllArgsConstructor() {
     final var id = UUID.randomUUID();
     final var agencyCode = "any_agency_code";
-    final var agencyDigit = "any_agency_digit";
     final var accountNumber = "any_account_number";
-    final var accountDigit = "any_account_digit";
-    final var digit = "any_digit";
     final var accountingDate = "any_accounting_date";
     final var releaseDate = "any_release_date";
     final var amount = "any_amount";
@@ -33,10 +30,7 @@ class Cnab240RegisterTest {
     final var register = new Cnab240Register(
         id,
         agencyCode,
-        agencyDigit,
         accountNumber,
-        accountDigit,
-        digit,
         accountingDate,
         releaseDate,
         amount,
@@ -52,10 +46,7 @@ class Cnab240RegisterTest {
 
     assertThat(register.getId()).isEqualTo(id);
     assertThat(register.getAgencyCode()).isEqualTo(agencyCode);
-    assertThat(register.getAgencyDigit()).isEqualTo(agencyDigit);
     assertThat(register.getAccountNumber()).isEqualTo(accountNumber);
-    assertThat(register.getAccountDigit()).isEqualTo(accountDigit);
-    assertThat(register.getDigit()).isEqualTo(digit);
     assertThat(register.getAccountingDate()).isEqualTo(accountingDate);
     assertThat(register.getReleaseDate()).isEqualTo(releaseDate);
     assertThat(register.getAmount()).isEqualTo(amount);
@@ -73,10 +64,7 @@ class Cnab240RegisterTest {
   void shouldSetAndGetAllFields() {
     final var id = UUID.randomUUID();
     final var agencyCode = "other_agency_code";
-    final var agencyDigit = "other_agency_digit";
     final var accountNumber = "other_account_number";
-    final var accountDigit = "other_account_digit";
-    final var digit = "other_digit";
     final var accountingDate = "other_accounting_date";
     final var releaseDate = "other_release_date";
     final var amount = "other_amount";
@@ -91,10 +79,7 @@ class Cnab240RegisterTest {
     final var register = new Cnab240Register();
     register.setId(id);
     register.setAgencyCode(agencyCode);
-    register.setAgencyDigit(agencyDigit);
     register.setAccountNumber(accountNumber);
-    register.setAccountDigit(accountDigit);
-    register.setDigit(digit);
     register.setAccountingDate(accountingDate);
     register.setReleaseDate(releaseDate);
     register.setAmount(amount);
@@ -109,10 +94,7 @@ class Cnab240RegisterTest {
 
     assertThat(register.getId()).isEqualTo(id);
     assertThat(register.getAgencyCode()).isEqualTo(agencyCode);
-    assertThat(register.getAgencyDigit()).isEqualTo(agencyDigit);
     assertThat(register.getAccountNumber()).isEqualTo(accountNumber);
-    assertThat(register.getAccountDigit()).isEqualTo(accountDigit);
-    assertThat(register.getDigit()).isEqualTo(digit);
     assertThat(register.getAccountingDate()).isEqualTo(accountingDate);
     assertThat(register.getReleaseDate()).isEqualTo(releaseDate);
     assertThat(register.getAmount()).isEqualTo(amount);
@@ -130,10 +112,7 @@ class Cnab240RegisterTest {
   void shouldGenerateToString() {
     final var id = UUID.randomUUID();
     final var agencyCode = "any_agency_code";
-    final var agencyDigit = "any_agency_digit";
     final var accountNumber = "any_account_number";
-    final var accountDigit = "any_account_digit";
-    final var digit = "any_digit";
     final var accountingDate = "any_accounting_date";
     final var releaseDate = "any_release_date";
     final var amount = "any_amount";
@@ -148,10 +127,7 @@ class Cnab240RegisterTest {
     final var register = new Cnab240Register(
         id,
         agencyCode,
-        agencyDigit,
         accountNumber,
-        accountDigit,
-        digit,
         accountingDate,
         releaseDate,
         amount,
@@ -169,10 +145,7 @@ class Cnab240RegisterTest {
         "CnabRegister{" +
             "id=" + id +
             ", agencyCode='" + agencyCode + '\'' +
-            ", agencyDigit='" + agencyDigit + '\'' +
             ", accountNumber='" + accountNumber + '\'' +
-            ", accountDigit='" + accountDigit + '\'' +
-            ", digit='" + digit + '\'' +
             ", accountingDate='" + accountingDate + '\'' +
             ", releaseDate='" + releaseDate + '\'' +
             ", amount='" + amount + '\'' +
@@ -196,14 +169,9 @@ class Cnab240RegisterTest {
         "any_bank_code",
         "any_agency_code",
         "any_account_number",
-        "any_account_digit",
-        "any_agency_digit",
-        "any_digit",
         "any_company_name",
         "any_date",
         "any_time",
-        "any_sequential_number",
-        "any_version",
         1,
         now,
         now,

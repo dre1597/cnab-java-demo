@@ -25,12 +25,6 @@ public class Cnab750Header {
   private String companyName;
 
   @Column(nullable = false)
-  private String sequentialNumber;
-
-  @Column(nullable = false)
-  private String version;
-
-  @Column(nullable = false)
   private int numberOfRegisters;
 
   @CreationTimestamp
@@ -52,8 +46,6 @@ public class Cnab750Header {
       final String agencyCode,
       final String accountNumber,
       final String companyName,
-      final String sequentialNumber,
-      final String version,
       final int numberOfRegisters,
       final Instant createdAt,
       final Instant updatedAt,
@@ -64,8 +56,6 @@ public class Cnab750Header {
     this.agencyCode = agencyCode;
     this.accountNumber = accountNumber;
     this.companyName = companyName;
-    this.sequentialNumber = sequentialNumber;
-    this.version = version;
     this.numberOfRegisters = numberOfRegisters;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
@@ -112,22 +102,6 @@ public class Cnab750Header {
     this.companyName = companyName;
   }
 
-  public String getSequentialNumber() {
-    return this.sequentialNumber;
-  }
-
-  public void setSequentialNumber(final String sequentialNumber) {
-    this.sequentialNumber = sequentialNumber;
-  }
-
-  public String getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(final String version) {
-    this.version = version;
-  }
-
   public int getNumberOfRegisters() {
     return this.numberOfRegisters;
   }
@@ -168,8 +142,6 @@ public class Cnab750Header {
         ", agencyCode='" + agencyCode + '\'' +
         ", accountNumber='" + accountNumber + '\'' +
         ", companyName='" + companyName + '\'' +
-        ", sequentialNumber='" + sequentialNumber + '\'' +
-        ", version='" + version + '\'' +
         ", numberOfRegisters=" + numberOfRegisters +
         ", createdAt=" + createdAt +
         ", updatedAt=" + updatedAt +

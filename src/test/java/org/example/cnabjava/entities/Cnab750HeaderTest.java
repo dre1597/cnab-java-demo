@@ -17,8 +17,6 @@ class Cnab750HeaderTest {
     final var agencyCode = "any_agency_code";
     final var accountNumber = "any_account_number";
     final var companyName = "any_company_name";
-    final var sequentialNumber = "any_sequential_number";
-    final var version = "any_version";
     final var numberOfRegisters = 1;
     final var now = Instant.now();
     final var cnabFile = this.createCnabFile();
@@ -29,8 +27,6 @@ class Cnab750HeaderTest {
         agencyCode,
         accountNumber,
         companyName,
-        sequentialNumber,
-        version,
         numberOfRegisters,
         now,
         now,
@@ -42,8 +38,6 @@ class Cnab750HeaderTest {
     assertEquals(agencyCode, header.getAgencyCode());
     assertEquals(accountNumber, header.getAccountNumber());
     assertEquals(companyName, header.getCompanyName());
-    assertEquals(sequentialNumber, header.getSequentialNumber());
-    assertEquals(version, header.getVersion());
     assertEquals(numberOfRegisters, header.getNumberOfRegisters());
     assertEquals(now, header.getCreatedAt());
     assertEquals(now, header.getUpdatedAt());
@@ -57,8 +51,6 @@ class Cnab750HeaderTest {
     final var agencyCode = "other_agency_code";
     final var accountNumber = "other_account_number";
     final var companyName = "other_company_name";
-    final var sequentialNumber = "other_sequential_number";
-    final var version = "other_version";
     final var numberOfRegisters = 2;
     final var now = Instant.now();
     final var cnabFile = this.createCnabFile();
@@ -69,8 +61,6 @@ class Cnab750HeaderTest {
     header.setAgencyCode(agencyCode);
     header.setAccountNumber(accountNumber);
     header.setCompanyName(companyName);
-    header.setSequentialNumber(sequentialNumber);
-    header.setVersion(version);
     header.setNumberOfRegisters(numberOfRegisters);
     header.setCreatedAt(now);
     header.setUpdatedAt(now);
@@ -81,8 +71,6 @@ class Cnab750HeaderTest {
     assertEquals(agencyCode, header.getAgencyCode());
     assertEquals(accountNumber, header.getAccountNumber());
     assertEquals(companyName, header.getCompanyName());
-    assertEquals(sequentialNumber, header.getSequentialNumber());
-    assertEquals(version, header.getVersion());
     assertEquals(numberOfRegisters, header.getNumberOfRegisters());
     assertEquals(now, header.getCreatedAt());
     assertEquals(now, header.getUpdatedAt());
@@ -96,8 +84,6 @@ class Cnab750HeaderTest {
     final var agencyCode = "other_agency_code";
     final var accountNumber = "other_account_number";
     final var companyName = "other_company_name";
-    final var sequentialNumber = "other_sequential_number";
-    final var version = "other_version";
     final var numberOfRegisters = 2;
     final var now = Instant.now();
     final var cnabFile = this.createCnabFile();
@@ -108,8 +94,6 @@ class Cnab750HeaderTest {
         agencyCode,
         accountNumber,
         companyName,
-        sequentialNumber,
-        version,
         numberOfRegisters,
         now,
         now,
@@ -122,8 +106,6 @@ class Cnab750HeaderTest {
         ", agencyCode='" + agencyCode + '\'' +
         ", accountNumber='" + accountNumber + '\'' +
         ", companyName='" + companyName + '\'' +
-        ", sequentialNumber='" + sequentialNumber + '\'' +
-        ", version='" + version + '\'' +
         ", numberOfRegisters=" + numberOfRegisters +
         ", createdAt=" + now +
         ", updatedAt=" + now +
