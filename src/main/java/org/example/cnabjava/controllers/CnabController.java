@@ -21,10 +21,6 @@ public class CnabController {
 
   @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
   public void create(@RequestPart("file") MultipartFile file) {
-    final var fileName = file.getOriginalFilename();
-    final var size = file.getSize();
-
-    System.out.println(fileName);
-    System.out.println(size);
+    this.cnabService.create(file);
   }
 }

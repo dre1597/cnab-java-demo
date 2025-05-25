@@ -31,6 +31,23 @@ class CnabFileTest {
   }
 
   @Test
+  void shouldCreateUsingAllRequiredArgsConstructor() {
+    final var fileName = "any_file_name";
+    final var status = CnabFileStatus.FAILED;
+    final var type = CnabType.CNAB240;
+
+    final var file = new CnabFile(fileName, status, type);
+
+    assertThat(file.getId()).isNotNull();
+    assertThat(file.getFileName()).isEqualTo(fileName);
+    assertThat(file.getStatus()).isEqualTo(status);
+    assertThat(file.getType()).isEqualTo(type);
+    assertThat(file.getErrorMessage()).isNull();
+    assertThat(file.getCreatedAt()).isNotNull();
+    assertThat(file.getUpdatedAt()).isNotNull();
+  }
+
+  @Test
   void shouldSetAndGetAllFields() {
     final var id = UUID.randomUUID();
     final var fileName = "any_file_name";

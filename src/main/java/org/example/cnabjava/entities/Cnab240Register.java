@@ -15,13 +15,9 @@ public class Cnab240Register {
 
   @Column(nullable = false)
   private String agencyCode;
-
-
+  
   @Column(nullable = false)
   private String accountNumber;
-
-  @Column(nullable = false)
-  private String digit;
 
   @Column(nullable = false)
   private String accountingDate;
@@ -114,14 +110,6 @@ public class Cnab240Register {
 
   public void setAccountNumber(final String accountNumber) {
     this.accountNumber = accountNumber;
-  }
-
-  public String getDigit() {
-    return this.digit;
-  }
-
-  public void setDigit(final String digit) {
-    this.digit = digit;
   }
 
   public String getAccountingDate() {
